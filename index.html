@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Stroke Studios | Luxury Makeup Artistry</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #dcb4b4;
+            --primary-color-rgb: 220, 180, 180;
+            --secondary-color: #333;
+            --light-color: #f9f3f3;
+            --dark-color: #222;
+            --text-color: #444;
+            --white: #fff;
+            --black: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(var(--primary-color-rgb), 0.8);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .service-content .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .service-content ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+
+        .service-content ul li {
+            margin-bottom: 5px;
+        }
+        
+   /* Why Choose Us Section */
+.why-choose-us {
+    background-color: var(--light-color);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 30px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(220, 180, 180, 0.1);
+    border-radius: 50%;
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.feature p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .features {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+    
+    .feature {
+        min-height: 240px;
+        padding: 20px 15px;
+    }
+}
+  /* Gallery Section */
+  .gallery {
+    background-color: var(--white);
+    padding: 80px 0;
+  }
+  
+  .gallery-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    gap: 10px;
+  }
+  
+  .gallery-filter {
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 30px;
+    cursor: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .gallery-filter:hover,
+  .gallery-filter.active {
+    background: var(--primary-color);
+    color: var(--white);
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: none;
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+  }
+  
+  .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+  
+  .gallery-caption {
+    color: var(--white);
+    font-size: 16px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+  }
+  
+  /* Lightbox Modal */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+  }
+  
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 5px;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: var(--white);
+    font-size: 30px;
+    cursor: none;
+  }
+  
+  .lightbox-caption {
+    color: var(--white);
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+  }
+  
+  .lightbox-prev,
+  .lightbox-next {
+    color: var(--white);
+    font-size: 30px;
+    cursor: none;
+    background: rgba(0, 0, 0, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .gallery-filters {
+      margin-bottom: 20px;
+    }
+  }
+
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 30px;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .testimonial-text:before {
+            position: absolute;
+            top: -15px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            position: absolute;
+            bottom: -25px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            cursor: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:after {
+            content: '+';
+            font-size: 20px;
+        }
+
+        .faq-question.active:after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.show {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Custom Cursor Styles */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: width 0.5s, height 0.5s, border 0.5s;
+        }
+
+        .cursor.hover, .cursor-follower.hover {
+            width: 15px;
+            height: 15px;
+            background-color: rgba(220, 180, 180, 0.8);
+        }
+
+        .cursor.click {
+            width: 18px;
+            height: 18px;
+            background-color: rgba(220, 180, 180, 0.9);
+        }
+
+        .cursor-follower.click {
+            width: 35px;
+            height: 35px;
+            border: 2px solid rgba(220, 180, 180, 0.8);
+        }
+
+        /* Particle styles */
+        .particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9997;
+            animation: fade-out 1s forwards;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(
+                    calc(-50% + var(--tx) * 1px), 
+                    calc(-50% + var(--ty) * 1px)
+                ) scale(0);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom cursor elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">SAN<span>STROKE</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Luxury Makeup Artistry</h1>
+                <p>Curated by Expert Global Artist Santhoshini</p>
+                <a href="#contact" class="btn">Book Your Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About the Founder</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="ceo.png" alt="Santhoshini">
+                </div>
+                <div class="about-text">
+                    <h3>Santhoshini – Visionary Artist. Global Learner. Heart-led Creator.</h3>
+                    <p>This didn't start in a fancy studio. It started in front of a bedroom mirror, with a kajal pencil and a wild curiosity.</p>
+                    <p>Some people discover their passion. Others are born with it. For Santhoshini, beauty was never just a hobby — it was an instinct.</p>
+                    <p>From a young age, she was fascinated by the way a little color, care, and confidence could transform not just how someone looked — but how they felt. While most saw makeup as a tool, she saw it as a medium of self-expression, emotion, and empowerment.</p>
+                    <p>Her journey began with self-learning — teaching herself through tutorials, practice sessions, and experimenting on friends and family. But her dream was bigger: to turn her talent into a true craft.</p>
+                    <p>She soon found herself in the heart of London, studying at the prestigious Academy of Freelance Makeup (AOFM) — a decision that shaped her into a world-class artist. Her time at AOFM gave her more than technical skills; it gave her exposure, confidence, and a deeper purpose.</p>
+                    <p>Over the years, Santhoshini has worked at international fashion weeks, editorial shoots, and high-end bridal projects, learning from global industry leaders and refining her signature style — one that blends technique with intuition, glamour with authenticity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bridal Makeup">
+                    </div>
+                    <div class="service-content">
+                        <h3>Bridal Makeup</h3>
+                        <p>Custom-crafted bridal looks to enhance your natural features and ensure long-lasting perfection.</p>
+                        <div class="price">Starting at ₹30,000</div>
+                        <ul>
+                            <li>HD / Airbrush Makeup</li>
+                            <li>Hair styling and traditional draping</li>
+                            <li>Lashes and complete prep</li>
+                            <li>Long-wear setting + bridal touch-up kit</li>
+                            <li>Optional trial session</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Event Makeup">
+                    </div>
+                    <div class="service-content">
+                        <h3>Event & Occasion Makeup</h3>
+                        <p>For engagements, parties, baby showers, and special occasions.</p>
+                        <div class="price">₹8,000 per session</div>
+                        <ul>
+                            <li>Full-face HD glam makeup</li>
+                            <li>Hairstyling</li>
+                            <li>False lashes</li>
+                            <li>Skin prep and finishing</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bridesmaid Makeup">
+                    </div>
+                    <div class="service-content">
+                        <h3>Bridesmaid & Family Makeup</h3>
+                        <p>Elegant looks for the wedding party, curated to match the bride's theme.</p>
+                        <div class="price">₹6,500 per person</div>
+                        <ul>
+                            <li>Natural or glam HD makeup</li>
+                            <li>Hairstyling and light draping</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us" id="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Trained at AOFM, London</h3>
+                    <p>With international runway and editorial experience</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Premium Product Usage</h3>
+                    <p>MAC, Dior, Charlotte Tilbury, Huda Beauty & more</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Specialized in All Indian Skin Tones</h3>
+                    <p>Precise shade matching guaranteed</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Private, Hygienic Studio Setup</h3>
+                    <p>Controlled environment, exclusive appointments</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Client-Focused Workflow</h3>
+                    <p>Time efficiency, clarity, and professional documentation</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Post-booking support</h3>
+                    <p>Clear timelines, pre-wedding skin prep tips, and guidance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery section-->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Gallery</h2>
+      <p>Explore our portfolio of stunning makeup transformations</p>
+    </div>
+    
+    <div class="gallery-filters">
+      <button class="gallery-filter active" data-filter="all">All</button>
+      <button class="gallery-filter" data-filter="Glam">Glam</button>
+      <button class="gallery-filter" data-filter="event">Event</button>
+      <button class="gallery-filter" data-filter="creative">Creative</button>
+    </div>
+    
+    <div class="gallery-grid">
+      <!-- Bridal Makeup Images -->
+      <div class="gallery-item" data-category="Glam">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Traditional Bridal Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Shinny look</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="Glam">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Contemporary Bridal Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Contemporary Glam</div>
+        </div>
+      </div>
+      
+      <!-- Event Makeup Images -->
+      <div class="gallery-item" data-category="event">
+        <img src="model1.png" alt="Evening Event Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Runway</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="event">
+        <img src="model2.png" alt="Runway" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Runway</div>
+        </div>
+      </div>
+      
+      <!-- Creative Makeup Images -->
+      <div class="gallery-item" data-category="creative">
+        <img src="creativeimg1.png" alt="Editorial Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Editorial Creative Makeup</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="creative">
+        <img src="model3.png" alt="Fashion Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Fashion Forward Look</div>
+        </div>
+      </div>
+      
+      <!-- Additional Images -->
+      <div class="gallery-item" data-category="bridal">
+        <img src="model4.png" alt="Soft Bridal Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Soft Natural Look</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" data-category="event">
+        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Party Makeup" class="gallery-img">
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Party Glam Makeup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav">
+      <div class="lightbox-prev" id="lightbox-prev">&#10094;</div>
+      <div class="lightbox-next" id="lightbox-next">&#10095;</div>
+    </div>
+  </div>
+</div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        Santhoshini brought calm, clarity, and absolute professionalism to my wedding day. The makeup stayed flawless from the morning ceremony to the late-night reception — no touch-ups needed.
+                    </div>
+                    <div class="testimonial-author">— Anusha P</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Secure Your Date</h3>
+                    <p>We take limited bookings per month to ensure quality and personal attention.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">+91-XXXXXXXXXX</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">info@sanstrokestudios.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">San Stroke Studios, Coimbatore, Tamil Nadu</div>
+                        </div>
+                    </div>
+                    <h3>Destination & Travel Bookings</h3>
+                    <p>San Stroke Studios is available for pan-India and international travel. We offer dedicated team support and pre-event coordination for multi-day bookings.</p>
+                </div>
+                <div class="contact-form">
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="bridal">Bridal Makeup</option>
+                                <option value="event">Event & Occasion Makeup</option>
+                                <option value="bridesmaid">Bridesmaid & Family Makeup</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Booking Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer bridal trials?</div>
+                    <div class="faq-answer">Yes. Trials are available and recommended for bridal clients.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the booking process?</div>
+                    <div class="faq-answer">50% advance confirms your slot. Balance is due before the service.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you travel for events?</div>
+                    <div class="faq-answer">Yes. We are available for outstation and international assignments.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are all products skin-safe?</div>
+                    <div class="faq-answer">Only globally certified, high-end products are used.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can packages be customized?</div>
+                    <div class="faq-answer">Yes. All services are tailored to client needs and event type.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>San Stroke Studios</h3>
+                    <p>Luxury Makeup Artistry | Curated by Expert Global Artist</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/santhoshini_ss/" target="_blank" ><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href-#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-choose-us">Why Choose Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Bridal Makeup</a></li>
+                        <li><a href="#services">Event Makeup</a></li>
+                        <li><a href="#services">Bridesmaid Makeup</a></li>
+                        <li><a href="#contact">Destination Bookings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+91-XXXXXXXXXX"><i class="fas fa-phone"></i> +91-XXXXXXXXXX</a></li>
+                        <li><a href="mailto:info@sanstrokestudios.com"><i class="fas fa-envelope"></i> info@sanstrokestudios.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Coimbatore, Tamil Nadu</a></li>
+                        <li><a href="https://www.instagram.com/santhoshini_ss/" target="_blank"><i class="fab fa-instagram"></i> @sanstroke_studios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 San Stroke Studios. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+
+// Gallery Filtering
+const galleryFilters = document.querySelectorAll('.gallery-filter');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryFilters.forEach(filter => {
+  filter.addEventListener('click', () => {
+    // Remove active class from all filters
+    galleryFilters.forEach(f => f.classList.remove('active'));
+    
+    // Add active class to clicked filter
+    filter.classList.add('active');
+    
+    const filterValue = filter.getAttribute('data-filter');
+    
+    // Show/hide gallery items based on filter
+    galleryItems.forEach(item => {
+      if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+
+let currentImageIndex = 0;
+let images = [];
+
+// Initialize lightbox with all gallery images
+function initLightbox() {
+  images = Array.from(document.querySelectorAll('.gallery-img'));
+  
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      currentImageIndex = index;
+      updateLightbox();
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+    });
+  });
+}
+
+// Update lightbox with current image
+function updateLightbox() {
+  const imgSrc = images[currentImageIndex].getAttribute('src');
+  const caption = images[currentImageIndex].getAttribute('alt');
+  
+  lightboxImg.setAttribute('src', imgSrc);
+  lightboxCaption.textContent = caption;
+}
+
+// Close lightbox
+lightboxClose.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = 'auto'; // Re-enable scrolling
+});
+
+// Navigate to previous image
+lightboxPrev.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightbox();
+});
+
+// Navigate to next image
+lightboxNext.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightbox();
+});
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Initialize lightbox when DOM is loaded
+document.addEventListener('DOMContentLoaded', initLightbox);
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('show');
+                });
+                
+                // Open current answer if it wasn't active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('show');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Custom Cursor with Particles
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        // Colors for particles (makeup-themed)
+        const particleColors = [
+            '#dcb4b4', // primary color
+            '#f9cdcd', // light pink
+            '#d4a5a5', // dusty rose
+            '#ffb7c5', // cherry blossom
+            '#f4acb7', // rose pink
+            '#e8b4bc', // mauve
+            '#ffd1dc', // pastel pink
+            '#f8c8dc', // cotton candy
+        ];
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let posX = 0;
+        let posY = 0;
+        
+        // Update cursor position
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+            
+            // Create particles on mouse move
+            if (Math.random() > 0.5) {
+                createParticle(mouseX, mouseY);
+            }
+        });
+        
+        // Animate follower with slight delay
+        function animate() {
+            posX += (mouseX - posX) * 0.1;
+            posY += (mouseY - posY) * 0.1;
+            
+            cursorFollower.style.left = posX + 'px';
+            cursorFollower.style.top = posY + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Create colorful particles
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random color from our palette
+            const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+            particle.style.backgroundColor = color;
+            
+            // Random size and position
+            const size = Math.random() * 6 + 4;
+            const tx = (Math.random() - 0.5) * 100;
+            const ty = (Math.random() - 0.5) * 100;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.setProperty('--tx', tx);
+            particle.style.setProperty('--ty', ty);
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation completes
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
+        
+        // Hover effects for interactive elements
+        document.querySelectorAll('a, button, .service-card, .faq-question').forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+                
+                // Create more particles on hover
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        createParticle(mouseX, mouseY);
+                    }, i * 100);
+                }
+            });
+            
+            elem.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+        });
+        
+        // Click effects
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('click');
+            cursorFollower.classList.add('click');
+            
+            // Create burst of particles on click
+            for (let i = 0; i < 10; i++) {
+                createParticle(mouseX, mouseY);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('click');
+            cursorFollower.classList.remove('click');
+        });
+        
+        // Hide cursor when not in window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorFollower.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
